@@ -9,7 +9,8 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import SessionsView from './SessionsView'
 import UsersView from './UsersView'
 import ListView from './ListView'
-
+import muiTheme from './muitheme'
+import {redirect} from './utils'
 const styles = {
 	headline: {
 		fontSize: 24,
@@ -40,14 +41,40 @@ const styles = {
 
 class Content extends Component {
 
+	constructor() {
+		super();
+		this.handleAddButtonClicked = this.handleAddButtonClicked.bind(this);
+	}
+
+	getChildContext() {
+		return muiTheme;
+	}
+
 	handleChange = (value) => {
 		this.props.updateSlider(value);
 	};
 
+	handleAddButtonClicked(e) {
+		e.preventDefault();
+
+		switch (this.props.tabSliderIndex) {
+			case 0:
+				redirect(this.props.dispatch, "/sessions");
+				break;
+			case 1:
+				redirect(this.props.dispatch, "/users");
+				break;
+			case 2:
+				redirect(this.props.dispatch, "/playlists");
+				break;
+			default:
+				return;
+		}
+	}
+
 	render() {
 		let {tabSliderIndex} = this.props;
 
-		console.log('Content.js.render: ' + tabSliderIndex);
 		return (
 
 			<div>
@@ -57,7 +84,8 @@ class Content extends Component {
 					<Tab label="Playlists" value={2}/>
 				</Tabs>
 
-				<FloatingActionButton style={styles.floatingAddButton} on>
+				<FloatingActionButton style={styles.floatingAddButton} onTouchEnd={this.handleAddButtonClicked}
+															onMouseDown={this.handleAddButtonClicked}>
 					<ContentAdd />
 				</FloatingActionButton>
 
@@ -78,4 +106,9 @@ class Content extends Component {
 		)
 	}
 }
+
+Content.childContextTypes = {
+	muiTheme: React.PropTypes.object.isRequired
+};
+
 export default Content;

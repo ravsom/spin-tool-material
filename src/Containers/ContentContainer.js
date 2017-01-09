@@ -9,13 +9,13 @@ import {connect} from 'react-redux';
 import Content from '../Components/Content'
 
 const mapDispatchToProps = (dispatch) => {
-	return bindActionCreators({updateSlider}, dispatch);
+	return bindActionCreators({updateSlider, dispatch}, dispatch);
 };
 
 const mapStateToProps = (state) => {
 	return {
 		tabSliderIndex: state.default.get("tabSliderIndex")
-}
+	}
 };
 const ContentContainer = connect(mapStateToProps, mapDispatchToProps)(Content);
 export default ContentContainer;

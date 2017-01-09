@@ -5,7 +5,7 @@ import {Map} from 'immutable';
 
 const displayStateReducer = (state = Map({tabSliderIndex: 0}), action) => {
 
-	console.log('action ' + action.type + "  : value: " + action.value);
+	console.log('action ' + action.type + "  : value: " + JSON.stringify(action));
 	switch (action.type) {
 		case 'SLIDER_UPDATE':
 			return state.set('tabSliderIndex', action.value);

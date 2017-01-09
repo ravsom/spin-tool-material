@@ -4,8 +4,9 @@
 
 import * as reducers from './displayState'
 import {combineReducers} from 'redux'
+import {routerReducer} from 'react-router-redux'
 
 
 export const combinedReducers = combineReducers(
-	{...reducers}
+	{...reducers, routing: routerReducer}
 );
