@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import '../App.css';
 import SpinBar from './Components/SpinAppBar';
 
 import Content from './Containers/ContentContainer'

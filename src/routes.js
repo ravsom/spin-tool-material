@@ -7,7 +7,7 @@ import React from 'react';
 import SessionAdd from './Containers/SessionAddContainer'
 import UsersAdd from './Containers/UserAddContainer'
 import PlaylistsAdd from './Containers/PlaylistAddContainer'
-import App from './App'
+import App from './Components/MainApp'
 
 const routes = () => {
 	return (

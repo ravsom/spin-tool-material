@@ -1,0 +1,1 @@
+docker run -it --rm --name my-spintool-app 6138511cd936
