@@ -55,8 +55,6 @@ class Content extends Component {
 	};
 
 	handleAddButtonClicked(e) {
-		e.preventDefault();
-
 		switch (this.props.tabSliderIndex) {
 			case 0:
 				redirect(this.props.dispatch, "/sessions");
@@ -92,10 +90,10 @@ class Content extends Component {
 				<div style={styles.swipeableContainer}>
 					<SwipeableViews index={tabSliderIndex} onChangeIndex={this.handleChange}>
 						<div style={styles.listContainer}>
-							<SessionsView/>
+							<SessionsView {...this.props}/>
 						</div>
 						<div style={styles.listContainer}>
-							<UsersView/>
+							<UsersView {...this.props}/>
 						</div>
 						<div style={styles.listContainer}>
 							<ListView/>

@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import Paper from 'material-ui/Paper'
-import Avatar from 'material-ui/Avatar'
-import {List, ListItem} from 'material-ui/List'
-import AccountBalance from 'material-ui/svg-icons/action/account-balance'
+import {List} from 'material-ui/List'
 
 const styles = {
 	listStyle: {
@@ -25,10 +23,7 @@ class ListView extends Component {
 		return (
 			<Paper style={styles.paperStyle} zDepth={3} rounded={true}>
 				<List style={styles.listStyle}>
-					<ListItem primaryText="08/01/2016" secondaryText="8 member - RPM 71"
-										leftAvatar={<Avatar><AccountBalance/></Avatar>} secondaryTextLines={2}/>
-					<ListItem primaryText="08/01/2016" secondaryText="7 member - RPM 49"
-										leftAvatar={<Avatar><AccountBalance/></Avatar>}/>
+					{this.props.children}
 				</List>
 			</Paper>
 		)

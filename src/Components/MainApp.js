@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import '../App.css';
-import SpinBar from './Components/SpinAppBar';
+import SpinBar from './SpinAppBar';
 
-import Content from './Containers/ContentContainer'
+import Content from '../Containers/ContentContainer'
 class App extends Component {
 
 

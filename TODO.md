@@ -16,3 +16,7 @@
 ####Other libs
 ######Use
 - Lighthouse
+
+###Work on Flexbox 
+- Improve
+    - Layout for Sessions view
