@@ -22,7 +22,7 @@ class SessionsView extends Component {
 		const {rideId, datetime, members, playlist} = ride;
 		const {playlistName} = playlist;
 
-		let dateMomentFormat = moment(datetime, 'DDMMYYYY');
+		let dateMomentFormat = moment(datetime);
 		const displayDate = dateMomentFormat.format("dddd, MMMM Do YYYY");
 		const secondaryText = playlistName + ' - ' + members.length + ' members';
 		return <ListItem key={rideId} primaryText={displayDate} secondaryText={secondaryText}

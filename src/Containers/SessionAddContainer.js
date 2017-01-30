@@ -3,11 +3,12 @@
  */
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {addSession} from '../ActionCreators/sessionsActionCreator';
 
 import SessionAdd from '../Components/SessionAdd'
 
 const mapDispatchToProps = (dispatch) => {
-	return bindActionCreators({dispatch}, dispatch);
+	return bindActionCreators({dispatch, addSession}, dispatch);
 };
 
 const mapStateToProps = (state) => {

@@ -1,4 +1,4 @@
-import {getRideSessionsAPI} from '../api/sessions'
+import {getRideSessionsAPI, addSessionAPI} from '../api/sessions'
 
 export const getRideSessions = () => {
 	return {
@@ -7,4 +7,13 @@ export const getRideSessions = () => {
 			return getRideSessionsAPI();
 		}
 	};
+};
+
+export const addSession = (session) => {
+	return {
+		types: [],
+		promise: () => {
+			return addSessionAPI(session);
+		}
+	}
 };
