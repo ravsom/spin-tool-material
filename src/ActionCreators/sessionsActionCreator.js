@@ -1,4 +1,4 @@
-import {getRideSessionsAPI, addSessionAPI} from '../api/sessions'
+import {getRideSessionsAPI, addSessionAPI, loadInitialAddSessionDataAPI} from '../api/sessions'
 
 export const getRideSessions = () => {
 	return {
@@ -11,9 +11,18 @@ export const getRideSessions = () => {
 
 export const addSession = (session) => {
 	return {
-		types: [],
+		types: ["REQ_ADD_SESSION", "REQ_ADD_SESSION_SUCCESS", "REQ_ADD_SESSION_FAILURE"],
 		promise: () => {
 			return addSessionAPI(session);
+		}
+	}
+};
+
+export const loadInitialAddSessionData = () => {
+	return {
+		types: ["REQ_LOAD_INIT_ADD_SESSION_DATA", "REQ_LOAD_INIT_ADD_SESSION_DATA_SUCCESS", "REQ_LOAD_INIT_ADD_SESSION_DATA_FAIL"],
+		promise: () => {
+			return loadInitialAddSessionDataAPI();
 		}
 	}
 };

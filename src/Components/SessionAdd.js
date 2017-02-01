@@ -12,7 +12,7 @@ import Chip from 'material-ui/Chip'
 import RaisedButton from 'material-ui/RaisedButton'
 
 import AutoComplete from 'material-ui/AutoComplete'
-
+import {redirect} from './utils'
 import {List} from 'immutable'
 const styles = {
 
@@ -58,11 +58,19 @@ class SessionAdd extends Component {
 
 		const defaultDate = new Date();
 
+		// this.props.loadInitialAddSessionData();
+
 		this.state = {
-			sessionDate: defaultDate,
+			rideDate: defaultDate,
+			rideTime: defaultDate,
 			selectedMembers: List(),
 			searchText: ''
 		};
+
+		console.log("ride add status: " + this.props.rideAddStatus);
+		// if (this.props.rideAddStatus) {
+		// 	redirect(this.props.dispatch, "/");
+		// }
 	}
 
 	handleRequestDelete(member) {
@@ -83,6 +91,31 @@ class SessionAdd extends Component {
 	}
 
 
+	addSessionInfo() {
+		console.log('Submit button pressed');
+		const sessionData = {
+			playlist: {
+				playlistId: "2",
+				playlistName: "RPM73"
+			},
+			members: ["2"],
+			rideDate: this.state.rideDate,
+			rideTime: this.state.rideTime
+		};
+		console.log('session data: ' + this.state.rideTime);
+		this.props.addSession(sessionData);
+
+	};
+
+	handleDateChange(e, value) {
+		console.log('date value: ' + value);
+		this.setState({rideDate: value})
+	}
+
+	handleTimeChange(e, value) {
+		this.setState({rideTime: value})
+	}
+
 	render() {
 
 		const {fuzzyFilter} = AutoComplete;
@@ -92,10 +125,13 @@ class SessionAdd extends Component {
 				<div style={styles.formContainer}>
 					<div style={styles.formStyle}>
 						<div style={styles.formCenterStyle}>
-							<DatePicker floatingLabelText="Ride Date" hintText="Ride date"
-													defaultDate={this.state.sessionDate}/>
+							<DatePicker value={this.state.rideDate} floatingLabelText="Ride Date" hintText="Ride date"
+													defaultDate={this.state.rideDate}
+													onChange={this.handleDateChange.bind(this)}/>
 
-							<TimePicker floatingLabelText="Ride Time" hintText="Ride Time" defaultTime={this.state.sessionDate}/>
+							<TimePicker value={this.state.rideTime} floatingLabelText="Ride Time" hintText="Ride Time"
+													defaultTime={this.state.rideTime}
+													onChange={(value) => this.handleTimeChange.bind(this)}/>
 
 							{this.state.selectedMembers ?
 								<div style={{display: "flex", flexWrap: "wrap"}}>
@@ -110,7 +146,8 @@ class SessionAdd extends Component {
 								</div>
 								: null}
 
-							<AutoComplete ref="membersWidget" dataSource={["Anuj", "Sailesh"]} floatingLabelText="Search Riders"
+							<AutoComplete ref="membersWidget" dataSource={["Anuj", "Sailesh", "Add New"]}
+														floatingLabelText="Search Riders"
 														onNewRequest={(chosenRequest) => {
 															this.refs.membersWidget.searchText = '';
 															this.setState({selectedMembers: this.state.selectedMembers.push(chosenRequest)});
@@ -126,7 +163,7 @@ class SessionAdd extends Component {
 							<AutoComplete dataSource={["RPM71", "RPM73"]} floatingLabelText="Playlist"
 														filter={fuzzyFilter} maxSearchResults={5}/>
 
-							<RaisedButton primary={true} label="Submit" fullWidth={true}/>
+							<RaisedButton primary={true} label="Submit" fullWidth={true} onTouchEnd={this.addSessionInfo.bind(this)}/>
 						</div>
 					</div>
 				</div>

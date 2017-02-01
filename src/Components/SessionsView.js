@@ -19,13 +19,13 @@ class SessionsView extends Component {
 	}
 
 	getListItem(ride) {
-		const {rideId, datetime, members, playlist} = ride;
-		const {playlistName} = playlist;
+		const {RideId, RideDate, Members, Playlist} = ride;
+		const {PlaylistName} = Playlist;
 
-		let dateMomentFormat = moment(datetime);
+		let dateMomentFormat = moment(RideDate);
 		const displayDate = dateMomentFormat.format("dddd, MMMM Do YYYY");
-		const secondaryText = playlistName + ' - ' + members.length + ' members';
-		return <ListItem key={rideId} primaryText={displayDate} secondaryText={secondaryText}
+		const secondaryText = PlaylistName + ' - ' + Members.length + ' members';
+		return <ListItem key={RideId} primaryText={displayDate} secondaryText={secondaryText}
 										 leftAvatar={<Avatar><AccountBalance/></Avatar>} secondaryTextLines={2}/>
 	}
 
