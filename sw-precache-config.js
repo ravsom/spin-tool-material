@@ -20,5 +20,16 @@ module.exports = {
 			},
 			origin: /\.amazonaws\.com/
 		}
+	}, {
+		urlPattern: '/(.*)',
+		handler: 'cacheFirst',
+		options: {
+			cache: {
+				name: 'googleapis',
+				maxEntries: 10,
+				maxAgeSeconds: 86400
+			},
+			origin: /\.googleapis\.com/
+		}
 	}]
 };
