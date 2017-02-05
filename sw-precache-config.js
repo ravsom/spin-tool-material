@@ -31,5 +31,16 @@ module.exports = {
 			},
 			origin: /\.googleapis\.com/
 		}
+	}, {
+		urlPattern: '/(.*)',
+		handler: 'cacheFirst',
+		options: {
+			cache: {
+				name: 'gstatic',
+				maxEntries: 10,
+				maxAgeSeconds: 86400
+			},
+			origin: /\.gstatic\.com/
+		}
 	}]
 };
