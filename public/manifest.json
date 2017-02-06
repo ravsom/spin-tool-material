@@ -1,6 +1,6 @@
 {
-  "short_name": "spin Tool",
-  "name": "Spin Tool Material PWA",
+  "short_name": "Spin Tool",
+  "name": "Spin Tool",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,7 +13,9 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/?utm_source=homescreen",
+  "start_url": "/?utm_source=homescreen&launcher=true",
   "display": "standalone",
-  "gcm_sender_id": "436097605403"
+  "gcm_sender_id": "436097605403",
+  "theme_color": "#a040a0",
+  "background_color": "#EEEEEE"
 }
