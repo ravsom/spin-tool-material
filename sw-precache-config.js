@@ -11,7 +11,7 @@ module.exports = {
 	importScripts: ['sw-import.js'],
 	runtimeCaching: [{
 		urlPattern: '/(.*)',
-		handler: 'cacheFirst',
+		handler: 'networkFirst',
 		options: {
 			cache: {
 				name: 'amazonaws',
