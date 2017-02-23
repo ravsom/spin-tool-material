@@ -82,10 +82,6 @@ class Content extends Component {
 					<Tab label="Playlists" value={2}/>
 				</Tabs>
 
-				<FloatingActionButton style={styles.floatingAddButton} onTouchEnd={this.handleAddButtonClicked}
-															onMouseDown={this.handleAddButtonClicked}>
-					<ContentAdd />
-				</FloatingActionButton>
 
 				<div style={styles.swipeableContainer}>
 					<SwipeableViews index={tabSliderIndex} onChangeIndex={this.handleChange}>
@@ -100,6 +96,12 @@ class Content extends Component {
 						</div>
 					</SwipeableViews>
 				</div>
+
+				<FloatingActionButton style={styles.floatingAddButton} onTouchEnd={this.handleAddButtonClicked}
+															onMouseDown={this.handleAddButtonClicked}>
+					<ContentAdd />
+				</FloatingActionButton>
+
 			</div>
 		)
 	}
