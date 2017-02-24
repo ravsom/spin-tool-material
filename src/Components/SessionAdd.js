@@ -28,6 +28,7 @@ const styles = {
 		flexDirection: "column",
 		height: "100%",
 		justifyContent: "flex-start",
+		marginTop:"50px"
 	},
 	formStyle: {
 		overflow: "auto",
