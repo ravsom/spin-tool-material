@@ -12,7 +12,6 @@ import Chip from 'material-ui/Chip'
 import RaisedButton from 'material-ui/RaisedButton'
 
 import AutoComplete from 'material-ui/AutoComplete'
-import {redirect} from './utils'
 import {List} from 'immutable'
 const styles = {
 

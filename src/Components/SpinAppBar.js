@@ -14,7 +14,7 @@ class SpinAppBar extends Component {
 
 	render() {
 		return (
-			<AppBar title={this.props.title}
+			<AppBar style={{position: "fixed"}} title={this.props.title}
 							showMenuIconButton={this.props.showMenuIconButton}
 							iconElementLeft={this.props.iconElementLeft}
 							iconElementRight={this.props.iconElementRight}

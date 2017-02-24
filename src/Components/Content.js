@@ -1,14 +1,9 @@
 import React, {Component} from 'react';
 
-import {Tabs, Tab} from 'material-ui/Tabs'
-import SwipeableViews from 'react-swipeable-views';
-
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
 import SessionsView from './SessionsView'
-import UsersView from './UsersView'
-import ListView from './ListView'
 import muiTheme from './muitheme'
 import {redirect} from './utils'
 const styles = {
@@ -55,48 +50,18 @@ class Content extends Component {
 	};
 
 	handleAddButtonClicked(e) {
-		switch (this.props.tabSliderIndex) {
-			case 0:
-				redirect(this.props.dispatch, "/sessions");
-				break;
-			case 1:
-				redirect(this.props.dispatch, "/users");
-				break;
-			case 2:
-				redirect(this.props.dispatch, "/playlists");
-				break;
-			default:
-				return;
-		}
+		redirect(this.props.dispatch, "/sessions");
 	}
 
 	render() {
-		let {tabSliderIndex} = this.props;
-
 		return (
 
 			<div>
-				<Tabs onChange={this.handleChange} value={tabSliderIndex}>
-					<Tab label="Sessions" value={0}/>
-					<Tab label="Users" value={1}/>
-					<Tab label="Playlists" value={2}/>
-				</Tabs>
-
-
 				<div style={styles.swipeableContainer}>
-					<SwipeableViews index={tabSliderIndex} onChangeIndex={this.handleChange}>
-						<div style={styles.listContainer}>
-							<SessionsView {...this.props}/>
-						</div>
-						<div style={styles.listContainer}>
-							<UsersView {...this.props}/>
-						</div>
-						<div style={styles.listContainer}>
-							<ListView/>
-						</div>
-					</SwipeableViews>
+					<div style={styles.listContainer}>
+						<SessionsView {...this.props}/>
+					</div>
 				</div>
-
 				<FloatingActionButton style={styles.floatingAddButton} onTouchEnd={this.handleAddButtonClicked}
 															onMouseDown={this.handleAddButtonClicked}>
 					<ContentAdd />
