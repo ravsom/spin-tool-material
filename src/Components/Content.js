@@ -27,11 +27,6 @@ const styles = {
 		alignContent: "stretch"
 	},
 
-	swipeableContainer: {
-		display: "flex",
-		justifyContent: "center",
-		height: "100%"
-	}
 };
 
 class Content extends Component {
@@ -57,10 +52,8 @@ class Content extends Component {
 		return (
 
 			<div>
-				<div style={styles.swipeableContainer}>
-					<div style={styles.listContainer}>
-						<SessionsView {...this.props}/>
-					</div>
+				<div style={styles.listContainer}>
+					<SessionsView {...this.props}/>
 				</div>
 				<FloatingActionButton style={styles.floatingAddButton} onTouchEnd={this.handleAddButtonClicked}
 															onMouseDown={this.handleAddButtonClicked}>
