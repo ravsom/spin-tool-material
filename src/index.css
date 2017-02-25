@@ -1,5 +1,27 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+@media (min-width: 600px) {
+    .LayoutBody {
+        width: auto;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+}
+
+@media (min-width: 1260px) {
+    .LayoutBody {
+        width: 66.66%;
+    }
+}
+
+@media (min-width: 920px) {
+    .LayoutBody {
+        width: 840px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

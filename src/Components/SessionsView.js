@@ -25,7 +25,7 @@ class SessionsView extends Component {
 		let dateMomentFormat = moment(RideDate);
 		const displayDate = dateMomentFormat.format("dddd, MMMM Do YYYY");
 		const secondaryText = PlaylistName + ' - ' + Members.length + ' members';
-		return <ListItem key={RideId} primaryText={displayDate} secondaryText={secondaryText}
+		return <ListItem style={{width: "100%"}} key={RideId} primaryText={displayDate} secondaryText={secondaryText}
 										 leftAvatar={<Avatar><AccountBalance/></Avatar>} secondaryTextLines={2}/>
 	}
 

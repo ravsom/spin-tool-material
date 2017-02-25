@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 
 import FloatingActionButton from 'material-ui/FloatingActionButton';
+
+import Paper from 'material-ui/Paper'
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
 import SessionsView from './SessionsView'
 import muiTheme from './muitheme'
 import {redirect} from './utils'
+import '../index.css'
 const styles = {
 	headline: {
 		fontSize: 24,
@@ -20,13 +23,12 @@ const styles = {
 	listContainer: {
 		display: "flex",
 		height: "100%",
-		flexShrink: 0,
 		overflow: "auto",
-		width: "100%",
-		justifyContent: "center",
-		alignContent: "stretch"
+		marginLeft: "auto",
+		marginRight: "auto",
+		paddingBottom: "40px",
+		width: "100%"
 	},
-
 };
 
 class Content extends Component {
@@ -51,10 +53,10 @@ class Content extends Component {
 	render() {
 		return (
 
-			<div>
-				<div style={styles.listContainer}>
+			<div style={{display: "flex", justifyContent: "center"}} className="LayoutBody">
+				<Paper zDepth={4} style={styles.listContainer}>
 					<SessionsView {...this.props}/>
-				</div>
+				</Paper>
 				<FloatingActionButton style={styles.floatingAddButton} onTouchEnd={this.handleAddButtonClicked}
 															onMouseDown={this.handleAddButtonClicked}>
 					<ContentAdd />
