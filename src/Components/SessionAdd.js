@@ -13,6 +13,8 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 import AutoComplete from 'material-ui/AutoComplete'
 import {List} from 'immutable'
+import {redirect} from './utils'
+
 const styles = {
 
 	rootContainerStyle: {
@@ -66,11 +68,6 @@ class SessionAdd extends Component {
 			selectedMembers: List(),
 			searchText: ''
 		};
-
-		console.log("ride add status: " + this.props.rideAddStatus);
-		// if (this.props.rideAddStatus) {
-		// 	redirect(this.props.dispatch, "/");
-		// }
 	}
 
 	handleRequestDelete(member) {
@@ -104,7 +101,7 @@ class SessionAdd extends Component {
 		};
 		console.log('session data: ' + this.state.rideTime);
 		this.props.addSession(sessionData);
-
+		redirect(this.props.dispatch, "/");
 	};
 
 	handleDateChange(e, value) {
@@ -116,6 +113,20 @@ class SessionAdd extends Component {
 		this.setState({rideTime: value})
 	}
 
+	handleNewRequestMember(chosenRequest) {
+		console.log('chosenRequest ' + chosenRequest);
+
+		if (this.isValidMember(chosenRequest)) {
+			this.setState({selectedMembers: this.state.selectedMembers.push(chosenRequest)});
+			this.setState({searchText: ''});
+		}
+	}
+
+	isValidMember(memberName) {
+		console.log('memberName:' + memberName);
+		return false;
+	}
+
 	render() {
 
 		const {fuzzyFilter} = AutoComplete;
@@ -125,6 +136,10 @@ class SessionAdd extends Component {
 				<div style={styles.formContainer}>
 					<div style={styles.formStyle}>
 						<div style={styles.formCenterStyle}>
+
+							<AutoComplete dataSource={["Gold's Gym RMZ", "Tribe VR"]} floatingLabelText="Fitness Centre"
+														filter={fuzzyFilter} maxSearchResults={5}/>
+
 							<DatePicker value={this.state.rideDate} floatingLabelText="Ride Date" hintText="Ride date"
 													defaultDate={this.state.rideDate}
 													onChange={this.handleDateChange.bind(this)}/>
@@ -148,11 +163,7 @@ class SessionAdd extends Component {
 
 							<AutoComplete ref="membersWidget" dataSource={["Anuj", "Sailesh", "Add New"]}
 														floatingLabelText="Search Riders"
-														onNewRequest={(chosenRequest) => {
-															this.refs.membersWidget.searchText = '';
-															this.setState({selectedMembers: this.state.selectedMembers.push(chosenRequest)});
-															this.setState({searchText: ''});
-														}}
+														onNewRequest={(chosenRequest) => this.handleNewRequestMember(chosenRequest)}
 														searchText={this.state.searchText}
 														onUpdateInput={(t) => {
 															this.setState({searchText: t});

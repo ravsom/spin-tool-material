@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
-import Paper from 'material-ui/Paper'
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
 import SessionsView from './SessionsView'
@@ -27,6 +26,7 @@ const styles = {
 		marginLeft: "auto",
 		marginRight: "auto",
 		paddingBottom: "40px",
+		paddingTop: "60px",
 		width: "100%"
 	},
 };
@@ -54,9 +54,9 @@ class Content extends Component {
 		return (
 
 			<div style={{display: "flex", justifyContent: "center"}} className="LayoutBody">
-				<Paper zDepth={4} style={styles.listContainer}>
+				<div style={styles.listContainer}>
 					<SessionsView {...this.props}/>
-				</Paper>
+				</div>
 				<FloatingActionButton style={styles.floatingAddButton} onTouchEnd={this.handleAddButtonClicked}
 															onMouseDown={this.handleAddButtonClicked}>
 					<ContentAdd />
