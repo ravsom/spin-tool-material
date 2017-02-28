@@ -11,7 +11,6 @@ import AccountBalance from 'material-ui/svg-icons/action/account-balance'
 import {ListItem} from 'material-ui/List'
 import moment from 'moment'
 
-
 class SessionsView extends Component {
 
 	componentDidMount() {
@@ -26,15 +25,16 @@ class SessionsView extends Component {
 		let dateMomentFormat = moment(RideDate);
 		const displayDate = dateMomentFormat.format("dddd, MMMM Do YYYY");
 		const secondaryText = PlaylistName + ' - ' + Members.length + ' members';
-		console.log(' ride id : ' + RideId);
 		return <ListItem key={RideId} primaryText={displayDate} secondaryText={secondaryText}
 										 leftAvatar={<Avatar><AccountBalance/></Avatar>} secondaryTextLines={2}/>
 	}
 
 	render() {
+
+		let sortedRides = this.props.rides || [];
 		return (
 			<ListView>
-				{this.props.rides ? this.props.rides.map(ride => this.getListItem(ride)) : null}
+				{sortedRides.map(ride => this.getListItem(ride))}
 			</ListView>
 		)
 	}
