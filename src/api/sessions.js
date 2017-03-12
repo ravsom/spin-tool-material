@@ -3,8 +3,7 @@
  */
 import axios from 'axios'
 
-
-const URL_RIDES = "https://xf3s07j9uc.execute-api.ap-northeast-1.amazonaws.com/prod";
+const URL_RIDES = "https://o8riyd26m1.execute-api.us-east-1.amazonaws.com/dev/rides";
 const URL_GET_ADD_SESSION_INIT_DATA = "";
 
 export const getRideSessionsAPI = () => {
@@ -16,9 +15,7 @@ export const addSessionAPI = (session) => {
 	return axios({
 		method: 'post',
 		url: URL_RIDES,
-		data: {
-			session
-		}
+		data: {ride: session}
 	});
 };
 

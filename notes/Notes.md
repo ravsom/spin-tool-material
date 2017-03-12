@@ -5,3 +5,5 @@
 - run `git push heroku master` to push content to heroku
 - run `git push origin master` to push to master on github
 
+####Debugging Create React App in JetBrains
+- [Debugging app](https://blog.jetbrains.com/webstorm/2017/01/debugging-react-apps/)

@@ -60,13 +60,12 @@ class SessionAdd extends Component {
 
 		const defaultDate = new Date();
 
-		// this.props.loadInitialAddSessionData();
-
 		this.state = {
 			rideDate: defaultDate,
 			rideTime: defaultDate,
 			selectedMembers: List(),
-			searchText: ''
+			searchText: '',
+			centre: ''
 		};
 	}
 
@@ -83,23 +82,21 @@ class SessionAdd extends Component {
 		return muiTheme
 	}
 
-	handleTouchTap() {
-		// alert('You clicked the Chip.');
-	}
-
-
 	addSessionInfo() {
-		console.log('Submit button pressed');
+		const {rideDate, rideTime}  =this.state;
+		const newConstDate = new Date(
+			rideDate.getFullYear(),
+			rideDate.getMonth(),
+			rideDate.getDate(),
+			rideTime.getHours(),
+			rideTime.getMinutes()
+		);
 		const sessionData = {
-			playlist: {
-				playlistId: "2",
-				playlistName: "RPM73"
-			},
-			members: ["2"],
-			rideDate: this.state.rideDate,
-			rideTime: this.state.rideTime
+			playlist: "da32",
+			members: ["sad2", "asfs21"],
+			rideDate: newConstDate.getTime(),
+			centre: this.state.centre
 		};
-		console.log('session data: ' + this.state.rideTime);
 		this.props.addSession(sessionData);
 		redirect(this.props.dispatch, "/");
 	};
@@ -122,6 +119,10 @@ class SessionAdd extends Component {
 		}
 	}
 
+	handleSetCentre(chosenRequest) {
+		this.setState({centre: chosenRequest});
+	}
+
 	isValidMember(memberName) {
 		console.log('memberName:' + memberName);
 		return false;
@@ -138,7 +139,8 @@ class SessionAdd extends Component {
 						<div style={styles.formCenterStyle}>
 
 							<AutoComplete dataSource={["Gold's Gym RMZ", "Tribe VR"]} floatingLabelText="Fitness Centre"
-														filter={fuzzyFilter} maxSearchResults={5}/>
+														filter={fuzzyFilter} maxSearchResults={5}
+														onNewRequest={chosenRequest => this.handleSetCentre(chosenRequest)}/>
 
 							<DatePicker value={this.state.rideDate} floatingLabelText="Ride Date" hintText="Ride date"
 													defaultDate={this.state.rideDate}
@@ -146,14 +148,13 @@ class SessionAdd extends Component {
 
 							<TimePicker value={this.state.rideTime} floatingLabelText="Ride Time" hintText="Ride Time"
 													defaultTime={this.state.rideTime}
-													onChange={(value) => this.handleTimeChange.bind(this)}/>
+													onChange={this.handleTimeChange.bind(this)}/>
 
 							{this.state.selectedMembers ?
 								<div style={{display: "flex", flexWrap: "wrap"}}>
 									{this.state.selectedMembers.map(member =>
 										<Chip key={member}
 													onRequestDelete={this.handleRequestDelete.bind(this, member)}
-													onTouchTap={this.handleTouchTap.bind(this, member)}
 													style={{margin: 4}}>
 											{member}
 										</Chip>)
@@ -179,7 +180,8 @@ class SessionAdd extends Component {
 					</div>
 				</div>
 			</div>
-		);
+		)
+			;
 	}
 }
 
