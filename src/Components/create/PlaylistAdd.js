@@ -3,7 +3,7 @@
  */
 
 import React, {Component} from 'react'
-import AddAsset from './AddAsset'
+import AddAsset from '../common/AddAsset'
 class PlaylistAdd extends Component {
 	render() {
 		return (

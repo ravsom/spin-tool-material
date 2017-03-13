@@ -3,8 +3,8 @@
  */
 
 import React, {Component} from 'react'
-import AddAsset from './AddAsset'
-import muiTheme from './muitheme'
+import AddAsset from '../common/AddAsset'
+import muiTheme from '../common/muitheme'
 
 import DatePicker from 'material-ui/DatePicker'
 import TimePicker from 'material-ui/TimePicker'
@@ -13,7 +13,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 import AutoComplete from 'material-ui/AutoComplete'
 import {List} from 'immutable'
-import {redirect} from './utils'
+import {redirect} from '../utils'
 
 const styles = {
 

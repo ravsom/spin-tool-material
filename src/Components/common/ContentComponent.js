@@ -4,10 +4,9 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
-import SessionsView from './SessionsView'
 import muiTheme from './muitheme'
-import {redirect} from './utils'
-import '../index.css'
+import {redirect} from '../utils'
+import '../../index.css'
 const styles = {
 	headline: {
 		fontSize: 24,
@@ -47,7 +46,7 @@ class Content extends Component {
 	};
 
 	handleAddButtonClicked(e) {
-		redirect(this.props.dispatch, "/sessions");
+		redirect(this.props.dispatch, this.props.onAddClickedRedirectRoute);
 	}
 
 	render() {
@@ -55,7 +54,7 @@ class Content extends Component {
 
 			<div style={{display: "flex", justifyContent: "center"}} className="LayoutBody">
 				<div style={styles.listContainer}>
-					<SessionsView {...this.props}/>
+					{this.props.children}
 				</div>
 				<FloatingActionButton style={styles.floatingAddButton} onTouchEnd={this.handleAddButtonClicked}
 															onMouseDown={this.handleAddButtonClicked}>

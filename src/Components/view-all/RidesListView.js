@@ -5,16 +5,17 @@
 
 import React, {Component} from 'react'
 
-import ListView from './ListView'
+import ListView from '../common/ListView'
 import Avatar from 'material-ui/Avatar'
 import AccountBalance from 'material-ui/svg-icons/action/account-balance'
 import {ListItem} from 'material-ui/List'
 import moment from 'moment'
+import RootUIComponent from '../common/RootUIComponent'
+
 
 class SessionsView extends Component {
 
 	componentDidMount() {
-		console.log('Sessions View mounting');
 		this.props.getRideSessions();
 	}
 
@@ -32,9 +33,11 @@ class SessionsView extends Component {
 
 		let sortedRides = this.props.rides || [];
 		return (
-			<ListView>
-				{sortedRides.map(ride => this.getListItem(ride))}
-			</ListView>
+			<RootUIComponent onAddClickedRedirectRoute="ride-add" title="Rides" {...this.props}>
+				<ListView>
+					{sortedRides.map(ride => this.getListItem(ride))}
+				</ListView>
+			</RootUIComponent>
 		)
 	}
 }

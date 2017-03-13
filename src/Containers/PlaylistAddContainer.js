@@ -4,7 +4,7 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import PlaylistAdd from '../Components/PlaylistAdd'
+import PlaylistAdd from '../Components/create/PlaylistAdd'
 
 const mapDispatchToProps = (dispatch) => {
 	return bindActionCreators({dispatch}, dispatch);

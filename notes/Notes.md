@@ -6,4 +6,4 @@
 - run `git push origin master` to push to master on github
 
 ####Debugging Create React App in JetBrains
-- [Debugging app](https://blog.jetbrains.com/webstorm/2017/01/debugging-react-apps/)
+- [Debugging Create React app](https://blog.jetbrains.com/webstorm/2017/01/debugging-react-apps/)

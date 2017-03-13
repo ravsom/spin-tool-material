@@ -6,7 +6,7 @@ import SpinAppBar from './SpinAppBar'
 import IconButton from 'material-ui/IconButton';
 import FlatButton from 'material-ui/FlatButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import {redirect} from './utils'
+import {redirect} from '../utils'
 class AddAsset extends Component {
 
 	render() {
@@ -18,7 +18,7 @@ class AddAsset extends Component {
 					iconElementRight={<FlatButton label="Save"/>}
 					rightButtonClicked={() => console.log("Save Clicked")}
 					leftIconClicked={() => {
-						redirect(this.props.dispatch, "/")
+						redirect(this.props.dispatch, this.props.onCloseRedirect)
 					}}
 				/>
 

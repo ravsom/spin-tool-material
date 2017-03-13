@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "immutable": "^3.8.1",
+    "localforage": "^1.5.0",
     "material-ui": "^0.16.6",
     "moment": "^2.17.1",
     "react": "^15.4.1",
@@ -21,6 +22,7 @@
     "react-swipeable-views": "^0.9.3",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
+    "redux-persist": "^4.4.2",
     "redux-thunk": "^2.1.0"
   },
   "scripts": {

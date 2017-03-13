@@ -9,16 +9,16 @@
 
 import {Map} from 'immutable';
 
-const riders = (state = Map({'riders': Map()}), action) => {
+const members = (state = Map({'riders': Map()}), action) => {
 	switch (action.type) {
 		case 'REQ_GET_RIDERS_SUCCESS':
-			return state.set('riders', action.result.data);
+			return state.set('members', action.result.data);
 		case 'REQ_GET_RIDERS':
 		case 'REQ_GET_RIDERS_FAILURE':
-			return state.set('riders', Map());
+			return state.set('members', Map());
 		default:
 			return state;
 	}
 };
 
-export  {riders};
+export  {members};

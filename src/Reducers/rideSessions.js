@@ -5,7 +5,10 @@
 
 import {Map, List} from 'immutable';
 
-const sessions = (state = Map(), action) => {
+const rides = (state = Map(), action) => {
+	if(typeof state !== Map) {
+		state = Map(state);
+	}
 	switch (action.type) {
 		case 'REQ_GET_SESSIONS_SUCCESS':
 			const rides = List(action.result.data.body);
@@ -22,4 +25,4 @@ const sessions = (state = Map(), action) => {
 	}
 };
 
-export {sessions};
+export {rides};
