@@ -8,6 +8,5 @@ import {combineReducers} from 'redux'
 import {routerReducer} from 'react-router-redux'
 
 
-export const combinedReducers = combineReducers(
-	{...sessions, ...riders, routing: routerReducer}
-);
+export const combinedReducers =
+		combineReducers({...sessions, ...riders, routing: routerReducer});
