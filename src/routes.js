@@ -9,6 +9,8 @@ import MemberAdd from './Containers/MemberAddContainer'
 import PlaylistsAdd from './Containers/PlaylistAddContainer'
 import RidesView from './Containers/RidesViewContainer'
 import MembersView from './Containers/MembersViewContainer'
+import MemberViewOneContainer from './Containers/MemberViewOneContainer'
+
 
 const routes = () => {
 	return (
@@ -17,6 +19,7 @@ const routes = () => {
 			<Route path="rides-view" component={RidesView}/>
 			<Route path="ride-add" component={RideAdd}/>
 			<Route path="members-view" component={MembersView}/>
+			<Route path="member-view-one/:id" component={MemberViewOneContainer}/>
 			<Route path="member-add" component={MemberAdd}/>
 			<Route path="playlists" component={PlaylistsAdd}/>
 		</Route>

@@ -4,10 +4,11 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-import MemberAdd from '../Components/create/MemberAdd'
+import MemberAdd from '../Components/one/MemberOne'
+import {addMember} from '../ActionCreators/membersActionCreator'
 
 const mapDispatchToProps = (dispatch) => {
-	return bindActionCreators({dispatch}, dispatch);
+	return bindActionCreators({dispatch, addMember}, dispatch);
 };
 
 const mapStateToProps = (state) => {

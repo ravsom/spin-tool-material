@@ -3,10 +3,10 @@
  */
 
 import * as sessions from './rideSessions'
-import * as riders from './membersReducer'
+import * as members from './membersReducer'
 import {combineReducers} from 'redux'
 import {routerReducer} from 'react-router-redux'
 
 
 export const combinedReducers =
-		combineReducers({...sessions, ...riders, routing: routerReducer});
+	combineReducers({...sessions, ...members, routing: routerReducer});

@@ -9,11 +9,10 @@
 import React, {Component} from 'react'
 
 import ListView from '../common/ListView'
-import PersonOutline from 'material-ui/svg-icons/social/person-outline'
 import {ListItem} from 'material-ui/List'
-import Avatar from 'material-ui/Avatar'
 import RootUIComponent from '../../Components/common/RootUIComponent'
-
+import TextField from 'material-ui/TextField'
+import {redirect} from '../utils'
 
 class MemberListView extends Component {
 
@@ -22,10 +21,21 @@ class MemberListView extends Component {
 	}
 
 	render() {
-
 		return (
 			<RootUIComponent title="Members" onAddClickedRedirectRoute="member-add" {...this.props}>
+
+				<TextField
+					hintText="Text" floatingLabelText="Search"
+					style={{width: "100%", paddingRight: "30px", paddingLeft: "10px"}} />
 				<ListView>
+					{
+						this.props.members.map((member) => {
+							return <ListItem onTouchTap={(event) => redirect(this.props.dispatch, 'member-view-one/' + member.id)}
+															 key={member.id}
+															 primaryText={member.name} secondaryText={member.whatsAppNumber}
+															 secondaryTextLines={2}/>
+						})
+					}
 
 				</ListView>
 			</RootUIComponent>

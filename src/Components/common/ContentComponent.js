@@ -20,6 +20,7 @@ const styles = {
 	},
 	listContainer: {
 		display: "flex",
+		flexDirection: "column",
 		height: "100%",
 		overflow: "auto",
 		marginLeft: "auto",

@@ -13,11 +13,12 @@ class AddAsset extends Component {
 		return (
 			<div>
 				<SpinAppBar
-					title={this.props.title}
+					title={this.props.assetTitle}
 					iconElementLeft={<IconButton><NavigationClose /></IconButton>}
 					iconElementRight={<FlatButton label="Save"/>}
 					rightButtonClicked={() => console.log("Save Clicked")}
 					leftIconClicked={() => {
+						console.log(this.props.onCloseRedirect !== null)
 						redirect(this.props.dispatch, this.props.onCloseRedirect)
 					}}
 				/>

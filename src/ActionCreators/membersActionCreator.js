@@ -1,7 +1,7 @@
 /**
  * Created by rs on 22/01/17.
  */
-import {getMembersAPI} from '../api/members'
+import {getMembersAPI, addMemberAPI, updateMemberAPI} from '../api/members'
 
 export const getMembers = () => {
 	return {
@@ -11,3 +11,21 @@ export const getMembers = () => {
 		}
 	};
 };
+
+export const addMember = (member) => {
+	return {
+		types: ["ADD_MEMBER", "ADD_MEMBER_S", "ADD_MEMBER_F"],
+		promise: () => {
+			return addMemberAPI(member);
+		}
+	}
+}
+
+export const updateMember = (id, member) => {
+	return {
+		types: ["ADD_MEMBER", "ADD_MEMBER_S", "ADD_MEMBER_F"],
+		promise: () => {
+			return updateMemberAPI(id, member);
+		}
+	}
+}

@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
 	return {
-		members: state.members.get("rides")
+		members: state.members.get("members")
 	}
 };
 
