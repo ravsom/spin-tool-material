@@ -4,7 +4,6 @@
 import React, {Component} from 'react'
 import SpinAppBar from './SpinAppBar'
 import IconButton from 'material-ui/IconButton';
-import FlatButton from 'material-ui/FlatButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import {redirect} from '../utils'
 class AddAsset extends Component {
@@ -15,14 +14,11 @@ class AddAsset extends Component {
 				<SpinAppBar
 					title={this.props.assetTitle}
 					iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-					iconElementRight={<FlatButton label="Save"/>}
-					rightButtonClicked={() => console.log("Save Clicked")}
 					leftIconClicked={() => {
 						console.log(this.props.onCloseRedirect !== null)
 						redirect(this.props.dispatch, this.props.onCloseRedirect)
 					}}
 				/>
-
 			</div>
 		)
 	}

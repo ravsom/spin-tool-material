@@ -33,21 +33,8 @@ const styles = {
 
 class Content extends Component {
 
-	constructor() {
-		super();
-		this.handleAddButtonClicked = this.handleAddButtonClicked.bind(this);
-	}
-
 	getChildContext() {
 		return muiTheme;
-	}
-
-	handleChange = (value) => {
-		this.props.updateSlider(value);
-	};
-
-	handleAddButtonClicked(e) {
-		redirect(this.props.dispatch, this.props.onAddClickedRedirectRoute);
 	}
 
 	render() {
@@ -57,8 +44,9 @@ class Content extends Component {
 				<div style={styles.listContainer}>
 					{this.props.children}
 				</div>
-				<FloatingActionButton style={styles.floatingAddButton} onTouchEnd={this.handleAddButtonClicked}
-															onMouseDown={this.handleAddButtonClicked}>
+				<FloatingActionButton style={styles.floatingAddButton}
+															onTouchEnd={() => redirect(this.props.dispatch, this.props.onAddClickedRedirectRoute)}
+															onMouseDown={() => redirect(this.props.dispatch, this.props.onAddClickedRedirectRoute)}>
 					<ContentAdd />
 				</FloatingActionButton>
 

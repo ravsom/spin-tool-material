@@ -15,19 +15,17 @@ const members = (state = Map({'members': Map()}), action) => {
 			if (action.result.data.body)
 				return state.set('members', action.result.data.body);
 			return state;
-		case 'REQ_GET_MEMBERS':
-			return state;
-		case 'REQ_GET_MEMBERS_FAILURE':
-			return state.set('members', Map());
-		case 'ADD_MEMBER':
-			console.log('member added: ' + action);
-			return state;
 		case 'ADD_MEMBER_S':
-			console.log('member added: success: ' + JSON.stringify(action.result.data));
-			return state;
+		case 'UPDATE_MEMBER_S':
+			if (!action.result.data.body) return state;
+			const memberList = state.get('rides').push(action.result.data.body);
+			return state.set('members', memberList);
+		case 'REQ_GET_MEMBERS_FAILURE':
+		case 'ADD_MEMBER':
+		case 'UPDATE_MEMBER':
 		case 'ADD_MEMBER_F':
-			console.log('member added: failure: ' + JSON.stringify(action));
-			return state;
+		case 'UPDATE_MEMBER_F':
+		case 'REQ_GET_MEMBERS':
 		default:
 			return state;
 	}

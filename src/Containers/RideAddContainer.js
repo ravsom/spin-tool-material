@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {addSession, loadInitialAddSessionData} from '../ActionCreators/ridesActionCreator';
 
-import RideAdd from '../Components/one/RideAdd'
+import RideAdd from '../Components/one/RideOne'
 
 const mapDispatchToProps = (dispatch) => {
 	return bindActionCreators({dispatch, addSession, loadInitialAddSessionData}, dispatch);

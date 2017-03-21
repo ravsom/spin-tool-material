@@ -4,9 +4,10 @@
 
 import * as sessions from './rideSessions'
 import * as members from './membersReducer'
+import * as studios from './studios'
 import {combineReducers} from 'redux'
 import {routerReducer} from 'react-router-redux'
 
 
 export const combinedReducers =
-	combineReducers({...sessions, ...members, routing: routerReducer});
+	combineReducers({...sessions, ...members, ...studios, routing: routerReducer});

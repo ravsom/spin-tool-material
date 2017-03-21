@@ -23,7 +23,7 @@ export const addMember = (member) => {
 
 export const updateMember = (id, member) => {
 	return {
-		types: ["ADD_MEMBER", "ADD_MEMBER_S", "ADD_MEMBER_F"],
+		types: ["UPDATE_MEMBER", "UPDATE_MEMBER_S", "UPDATE_MEMBER_F"],
 		promise: () => {
 			return updateMemberAPI(id, member);
 		}

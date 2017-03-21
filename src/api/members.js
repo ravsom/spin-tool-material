@@ -5,6 +5,7 @@
 import axios from 'axios'
 
 const URL_MEMBERS = "https://hwn1sshmzi.execute-api.us-east-1.amazonaws.com/dev/members";
+const URL_MEMBER = "https://hwn1sshmzi.execute-api.us-east-1.amazonaws.com/dev/member";
 
 export const getMembersAPI = () => {
 	return axios.get(URL_MEMBERS);
@@ -15,6 +16,7 @@ export const addMemberAPI = (member) => {
 	return axios.post(URL_MEMBERS, member);
 };
 
-export const updateMemberAPI = (id, member)=>{
-	return axios.put(URL_MEMBERS+'/'+id, member)
+export const updateMemberAPI = (id, member) => {
+	const url = URL_MEMBER + '/' + id;
+	return axios.put(url, member);
 };

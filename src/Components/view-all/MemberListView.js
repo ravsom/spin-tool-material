@@ -32,7 +32,7 @@ class MemberListView extends Component {
 						this.props.members.map((member) => {
 							return <ListItem onTouchTap={(event) => redirect(this.props.dispatch, 'member-view-one/' + member.id)}
 															 key={member.id}
-															 primaryText={member.name} secondaryText={member.whatsAppNumber}
+															 primaryText={member.name} secondaryText={member.phoneNumber}
 															 secondaryTextLines={2}/>
 						})
 					}

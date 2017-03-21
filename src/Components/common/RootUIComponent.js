@@ -21,7 +21,7 @@ const MoreMenu = (props) => {
 		<MenuItem primaryText="Rides" onTouchTap={() => redirect(props.dispatch, 'rides-view')}/>
 		<MenuItem primaryText="MapUsers"/>
 		<MenuItem primaryText="Playlists"/>
-		<MenuItem primaryText="Centres"/>
+		<MenuItem primaryText="Studios" onTouchTap={()=>redirect(props.dispatch, 'studios-view')}/>
 		<MenuItem primaryText="Sign Out"/>
 	</IconMenu>
 };

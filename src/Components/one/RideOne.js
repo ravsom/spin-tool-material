@@ -15,7 +15,7 @@ import {redirect} from '../utils'
 
 import CommonAddComponent from '../common/CommonAddComponent';
 
-class SessionAdd extends Component {
+class RideOne extends Component {
 
 	constructor(props) {
 		super(props);
@@ -132,4 +132,4 @@ class SessionAdd extends Component {
 }
 
 
-export default SessionAdd
+export default RideOne

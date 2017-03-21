@@ -7,32 +7,33 @@ import CommonAddComponent from '../common/CommonAddComponent'
 import TextField from 'material-ui/TextField';
 import AutoComplete from 'material-ui/AutoComplete'
 import RaisedButton from 'material-ui/RaisedButton'
+import {redirect} from '../utils'
+
 
 class MemberAdd extends Component {
 
 	constructor(props) {
 		super(props);
 
-		console.log(JSON.stringify(props.member));
 		this.state = {
 			name: props.member ? props.member.name : "",
-			whatsAppNumber: props.member ? props.member.whatsAppNumber : "",
+			phoneNumber: props.member ? props.member.phoneNumber : "",
 			studio: props.member ? props.member.studio : null
 		}
 	}
 
 	addMember() {
-		console.log("Name: " + this.state.name);
-		console.log("Whatsapp number: " + this.state.whatsAppNumber);
-		console.log("studio: " + this.state.studio);
-
-		this.props.addMember({
+		const member = {
 			member: {
 				name: this.state.name,
-				whatsAppNumber: this.state.whatsAppNumber,
+				phoneNumber: this.state.phoneNumber,
 				studio: this.state.studio
 			}
-		});
+		};
+		this.props.member ?
+			this.props.updateMember(this.props.member.id, member) : this.props.addMember(member);
+
+		redirect(this.props.dispatch, "/members-view");
 	}
 
 	render() {
@@ -46,11 +47,11 @@ class MemberAdd extends Component {
 					hintText="Ravi" floatingLabelText="Name" onChange={(newName) => this.setState({name: newName.target.value})}
 					value={this.state.name}/>
 
-				{/*<!--Whatsapp-->*/}
+				{/*<!--Phone number-->*/}
 				<TextField
-					hintText="9999 444 999" floatingLabelText="Whatsapp number"
-					onChange={(number) => this.setState({whatsAppNumber: number.target.value})}
-					value={this.state.whatsAppNumber}
+					hintText="9999 444 999" floatingLabelText="Phone number"
+					onChange={(number) => this.setState({phoneNumber: number.target.value})}
+					value={this.state.phoneNumber}
 				/>
 				{/*<!--Studio-->*/}
 				<AutoComplete dataSource={["Gold's Gym RMZ", "Tribe VR"]} floatingLabelText="Studio"

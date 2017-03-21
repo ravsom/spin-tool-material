@@ -9,7 +9,10 @@ import MemberAdd from './Containers/MemberAddContainer'
 import PlaylistsAdd from './Containers/PlaylistAddContainer'
 import RidesView from './Containers/RidesViewContainer'
 import MembersView from './Containers/MembersViewContainer'
-import MemberViewOneContainer from './Containers/MemberViewOneContainer'
+import MemberViewOneContainer from './Containers/MemberUpdateContainer'
+import StudiosViewContainer from './Containers/StudiosViewContainer'
+import StudioAddContainer from './Containers/StudioAddContainer'
+import StudioUpdateContainer from './Containers/StudioUpdateContainer'
 
 
 const routes = () => {
@@ -22,6 +25,9 @@ const routes = () => {
 			<Route path="member-view-one/:id" component={MemberViewOneContainer}/>
 			<Route path="member-add" component={MemberAdd}/>
 			<Route path="playlists" component={PlaylistsAdd}/>
+			<Route path="studios-view" component={StudiosViewContainer}/>
+			<Route path="studios-add" component={StudioAddContainer}/>
+			<Route path="studio-update/:id" component={StudioUpdateContainer}/>
 		</Route>
 	);
 };
