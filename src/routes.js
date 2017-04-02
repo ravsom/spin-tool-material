@@ -13,13 +13,25 @@ import MemberViewOneContainer from './Containers/MemberUpdateContainer'
 import StudiosViewContainer from './Containers/StudiosViewContainer'
 import StudioAddContainer from './Containers/StudioAddContainer'
 import StudioUpdateContainer from './Containers/StudioUpdateContainer'
+import SignedOut from './Components/common/SignedOut'
 
+import AuthService from './utils/AuthService'
+
+const auth = new AuthService('Xf6mfqavTuIfXgdK29ZSwb6eyqnHxrU5', 'spinfit.eu.auth0.com');
+
+const requireAuth = (nextState, replace) => {
+	console.log('checking for auth');
+	if (!auth.loggedIn()) {
+		replace({pathname: '/members-view'})
+		// auth.login.call(this);
+	}
+};
 
 const routes = () => {
 	return (
-		<Route path="/" component={RootComponent}>
+		<Route path="/" component={RootComponent} auth={auth}>
 			<IndexRoute component={RidesView}/>
-			<Route path="rides-view" component={RidesView}/>
+			<Route path="rides-view" component={RidesView} onEnter={requireAuth}/>
 			<Route path="ride-add" component={RideAdd}/>
 			<Route path="members-view" component={MembersView}/>
 			<Route path="member-view-one/:id" component={MemberViewOneContainer}/>
@@ -28,6 +40,8 @@ const routes = () => {
 			<Route path="studios-view" component={StudiosViewContainer}/>
 			<Route path="studios-add" component={StudioAddContainer}/>
 			<Route path="studio-update/:id" component={StudioUpdateContainer}/>
+			<Route path="signed-out" component={SignedOut}/>
+
 		</Route>
 	);
 };

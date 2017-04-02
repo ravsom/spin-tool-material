@@ -10,7 +10,7 @@ import ListView from '../common/ListView'
 import {ListItem} from 'material-ui/List'
 import RootUIComponent from '../../Components/common/RootUIComponent'
 import TextField from 'material-ui/TextField'
-import {redirect} from '../utils'
+import {redirect} from '../../utils/utils'
 class StudiosListView extends Component {
 
 	componentDidMount() {

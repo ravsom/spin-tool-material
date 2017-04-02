@@ -7,7 +7,7 @@ import CommonAddComponent from '../common/CommonAddComponent'
 import TextField from 'material-ui/TextField';
 import AutoComplete from 'material-ui/AutoComplete'
 import RaisedButton from 'material-ui/RaisedButton'
-import {redirect} from '../utils'
+import {redirect} from '../../utils/utils'
 
 
 class MemberAdd extends Component {

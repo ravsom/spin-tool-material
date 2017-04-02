@@ -6,7 +6,7 @@ import React, {Component} from 'react'
 import CommonAddComponent from '../common/CommonAddComponent'
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton'
-import {redirect} from '../utils'
+import {redirect} from '../../utils/utils'
 import {ListItem} from 'material-ui/List'
 import ListView from '../common/ListView'
 import AddIcon from 'material-ui/svg-icons/content/add';

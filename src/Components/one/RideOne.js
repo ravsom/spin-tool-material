@@ -11,7 +11,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 import AutoComplete from 'material-ui/AutoComplete'
 import {List} from 'immutable'
-import {redirect} from '../utils'
+import {redirect} from '../../utils/utils'
 
 import CommonAddComponent from '../common/CommonAddComponent';
 

@@ -9,8 +9,14 @@
 
 import {Map} from 'immutable';
 
-const members = (state = Map({'members': Map()}), action) => {
+const members = (state = Map({'members': Map(), 'loggedin': false}), action) => {
 	switch (action.type) {
+		case 'AUTH0_LOGIN':
+			console.log('user logged in');
+			return state.set('loggedin', true);
+		case 'AUTH0_LOGOUT':
+			console.log('user logged out');
+			return state.set('loggedin', false);
 		case 'REQ_GET_MEMBERS_SUCCESS':
 			if (action.result.data.body)
 				return state.set('members', action.result.data.body);

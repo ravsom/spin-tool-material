@@ -5,7 +5,7 @@ import React, {Component} from 'react'
 import SpinAppBar from './SpinAppBar'
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import {redirect} from '../utils'
+import {redirect} from '../../utils/utils'
 class AddAsset extends Component {
 
 	render() {

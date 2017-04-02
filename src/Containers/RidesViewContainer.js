@@ -7,9 +7,10 @@ import {getRideSessions} from '../ActionCreators/ridesActionCreator'
 import {connect} from 'react-redux';
 
 import RidesListView from '../Components/view-all/RidesListView'
+import {login, logout} from '../ActionCreators/loginActionCreator'
 
 const mapDispatchToProps = (dispatch) => {
-	return bindActionCreators({getRideSessions, dispatch}, dispatch);
+	return bindActionCreators({getRideSessions, login, logout, dispatch}, dispatch);
 };
 
 const mapStateToProps = (state) => {

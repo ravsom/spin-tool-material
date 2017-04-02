@@ -5,7 +5,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
 import muiTheme from './muitheme'
-import {redirect} from '../utils'
+import {redirect} from '../../utils/utils'
 import '../../index.css'
 const styles = {
 	headline: {
@@ -49,7 +49,6 @@ class Content extends Component {
 															onMouseDown={() => redirect(this.props.dispatch, this.props.onAddClickedRedirectRoute)}>
 					<ContentAdd />
 				</FloatingActionButton>
-
 			</div>
 		)
 	}
