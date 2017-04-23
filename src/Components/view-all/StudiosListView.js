@@ -8,7 +8,7 @@ import React, {Component} from 'react'
 
 import ListView from '../common/ListView'
 import {ListItem} from 'material-ui/List'
-import RootUIComponent from '../../Components/common/RootUIComponent'
+import Content from '../../Components/common/ContentComponent'
 import TextField from 'material-ui/TextField'
 import {redirect} from '../../utils/utils'
 class StudiosListView extends Component {
@@ -19,7 +19,7 @@ class StudiosListView extends Component {
 
 	render() {
 		return (
-			<RootUIComponent title="Studios" onAddClickedRedirectRoute="studios-add" {...this.props}>
+			<Content {...this.props}>
 
 				<TextField
 					hintText="Text" floatingLabelText="Search"
@@ -34,7 +34,7 @@ class StudiosListView extends Component {
 					}
 
 				</ListView>
-			</RootUIComponent>
+			</Content>
 		)
 	}
 }

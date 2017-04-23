@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import RootUIComponent from './RootUIComponent'
 
 class SignedOut extends Component {
 
 	render() {
-		return <RootUIComponent {...this.props}>
+		console.log('signed out called.');
+		return <div style={{marginTop: "100px"}}>
 			You have been signed out.
-		</RootUIComponent>
+		</div>
 	}
 }
 

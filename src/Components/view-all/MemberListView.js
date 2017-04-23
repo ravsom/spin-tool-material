@@ -10,7 +10,7 @@ import React, {Component} from 'react'
 
 import ListView from '../common/ListView'
 import {ListItem} from 'material-ui/List'
-import RootUIComponent from '../../Components/common/RootUIComponent'
+import Content from '../../Components/common/ContentComponent'
 import TextField from 'material-ui/TextField'
 import {redirect} from '../../utils/utils'
 
@@ -22,11 +22,11 @@ class MemberListView extends Component {
 
 	render() {
 		return (
-			<RootUIComponent title="Members" onAddClickedRedirectRoute="member-add" {...this.props}>
+			<Content {...this.props}>
 
 				<TextField
 					hintText="Text" floatingLabelText="Search"
-					style={{width: "100%", paddingRight: "30px", paddingLeft: "10px"}} />
+					style={{width: "100%", paddingRight: "30px", paddingLeft: "10px"}}/>
 				<ListView>
 					{
 						this.props.members.map((member) => {
@@ -38,7 +38,7 @@ class MemberListView extends Component {
 					}
 
 				</ListView>
-			</RootUIComponent>
+			</Content>
 		)
 	}
 }

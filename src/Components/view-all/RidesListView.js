@@ -8,7 +8,7 @@ import Avatar from 'material-ui/Avatar'
 import AccountBalance from 'material-ui/svg-icons/action/account-balance'
 import {ListItem} from 'material-ui/List'
 import moment from 'moment'
-import RootUIComponent from '../common/RootUIComponent'
+import Content from '../common/ContentComponent'
 
 class RidesListView extends Component {
 
@@ -30,12 +30,11 @@ class RidesListView extends Component {
 
 		let sortedRides = this.props.rides || [];
 		return (
-			<RootUIComponent onAddClickedRedirectRoute="ride-add" title="Rides" {...this.props}>
-
+			<Content {...this.props}>
 				<ListView>
 					{sortedRides.map(ride => this.getListItem(ride))}
 				</ListView>
-			</RootUIComponent>
+			</Content>
 		)
 	}
 }
